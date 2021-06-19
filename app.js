@@ -1,9 +1,14 @@
+require('dotenv').config();
+
 const express = require('express');
 
 const request = require('request');
 
 const https = require('https');
+
 const app = express();
+
+const server_port = process.env.PORT || 8000;
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -21,9 +26,9 @@ app.get('/failure', (req, res) => {
 	res.sendFile(__dirname + '/failure.html');
 });
 
-app.post('/failure', (req, res)=>{
-    res.redirect('/')
-})
+app.post('/failure', (req, res) => {
+	res.redirect('/');
+});
 
 app.post('/', (req, res) => {
 	const username = req.body.username;
@@ -43,11 +48,11 @@ app.post('/', (req, res) => {
 
 	const jsonData = JSON.stringify(data);
 
-	const url = 'https://us6.api.mailchimp.com/3.0/lists/47b34541c1';
+	const url = process.env.url;
 
 	const options = {
 		method: 'POST',
-		auth: 'olutunde:b368b6d141c1344740b4d3f5f52ad1c1-us6',
+		auth: process.env.auth,
 	};
 	const request = https.request(url, options, (response) => {
 		if (response.statusCode === 200) {
@@ -64,12 +69,6 @@ app.post('/', (req, res) => {
 	request.end();
 });
 
-app.listen(3000, () => {
+app.listen(server_port, () => {
 	console.log('Listening boss');
 });
-
-//API KEY
-//b368b6d141c1344740b4d3f5f52ad1c1-us6
-
-//Audience ID
-//47b34541c1
