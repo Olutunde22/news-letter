@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="" />
+		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+		<meta name="generator" content="Hugo 0.83.1" />
+		<title>Signin Template · Bootstrap v5.0</title>
+
+		<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/" />
+
+		<!-- Bootstrap core CSS -->
+		<!-- CSS only -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+			crossorigin="anonymous"
+		/>
+
+		<!-- Favicons -->
+		<link
+			rel="apple-touch-icon"
+			href="/docs/5.0/assets/img/favicons/apple-touch-icon.png"
+			sizes="180x180"
+		/>
+		<link
+			rel="icon"
+			href="/docs/5.0/assets/img/favicons/favicon-32x32.png"
+			sizes="32x32"
+			type="image/png"
+		/>
+		<link
+			rel="icon"
+			href="/docs/5.0/assets/img/favicons/favicon-16x16.png"
+			sizes="16x16"
+			type="image/png"
+		/>
+		<link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json" />
+		<link
+			rel="mask-icon"
+			href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg"
+			color="#7952b3"
+		/>
+		<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico" />
+		<meta name="theme-color" content="#7952b3" />
+
+		<style>
+			.bd-placeholder-img {
+				font-size: 1.125rem;
+				text-anchor: middle;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				user-select: none;
+			}
+
+			@media (min-width: 768px) {
+				.bd-placeholder-img-lg {
+					font-size: 3.5rem;
+				}
+			}
+		</style>
+
+		<!-- Custom styles for this template -->
+		<link href="css/styles.css" rel="stylesheet" />
+	</head>
+	<body class="text-center">
+		<main class="form-signin">
+			<form action='/' method="POST">
+				<img
+					class="mb-4"
+					src="data:image/png;base64,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"
+					alt="newsletter logo"
+					width="72"
+					height="57"
+				/>
+				<h1 class="h3 mb-3 fw-normal">Sign Up for my newsletter</h1>
+				<div class="form-floating">
+					<input type="text" class="form-control" id="floatingInput" name="username" placeholder="Username" />
+					<label for="floatingInput">Username</label>
+				</div>
+				<div class="form-floating">
+					<input
+						type="email"
+						class="form-control"
+						id="floatingInput"
+                        name = "email"
+						placeholder="name@example.com"
+					/>
+					<label for="floatingInput">Email address</label>
+				</div>
+
+				<div class="checkbox mb-3">
+					<label> <input type="checkbox" value="remember-me" /> Remember me </label>
+				</div>
+				<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+				<p class="mt-5 mb-3 text-muted">In.Tech</p>
+			</form>
+		</main>
+	</body>
+</html>
