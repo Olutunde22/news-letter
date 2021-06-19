@@ -10,6 +10,10 @@ const app = express();
 
 const server_port = process.env.PORT || 8000;
 
+const url = process.env.URL;
+
+const auth = process.env.AUTH;
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
@@ -48,11 +52,9 @@ app.post('/', (req, res) => {
 
 	const jsonData = JSON.stringify(data);
 
-	const url = process.env.url;
-
 	const options = {
 		method: 'POST',
-		auth: process.env.auth,
+		auth: auth,
 	};
 	const request = https.request(url, options, (response) => {
 		if (response.statusCode === 200) {
